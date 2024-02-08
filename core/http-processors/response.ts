@@ -2,7 +2,6 @@ export interface ResponseFormat {
   data?: any;
   message?: string;
   error?: string;
-  statusCode: number;
   isSuccess?: boolean;
 }
 
@@ -10,7 +9,6 @@ export class SuccessResponse {
   static success(message: string) {
     let res = {
       message,
-      statusCode: 200,
       isSuccess: true,
     };
 
@@ -32,10 +30,9 @@ export class SuccessResponse {
   }
 }
 export class FailureResponse {
-  static failure(error: any, statusCode = 400) {
+  static failure(error: any) {
     let res = {
       isSuccess: false,
-      statusCode,
       message: error.message || error || "SERVER ERROR",
     };
 
