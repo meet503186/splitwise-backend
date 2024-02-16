@@ -1,7 +1,6 @@
-import express, { Request, Response } from "express";
-import { DbController } from "../controllers/common.controller";
+import express from "express";
 import { authRoutes } from "./auth.route";
-import { AuthController } from "../controllers/auth.controller";
+import { termsRoutes } from "./terms.route";
 
 export const router = express.Router();
 
@@ -9,6 +8,10 @@ const routes = [
   {
     path: "/auth",
     route: authRoutes,
+  },
+  {
+    path: "/terms",
+    route: termsRoutes,
   },
 ];
 
